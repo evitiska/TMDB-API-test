@@ -22,4 +22,14 @@ jobs:
 
       - name: Run tests with Docker
         run: |
-          docker run --rm -e TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} tmdb-api-test
+          docker run --rm  \
+            -v ${{ github.workspace }}/test-reports:/app/reports \
+            -e TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} \
+            tmdb-api-test
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test-reports/
+          retention-days: 7
