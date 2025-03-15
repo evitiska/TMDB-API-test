@@ -22,4 +22,4 @@ jobs:
 
       - name: Run tests with Docker
         run: |
-          docker run --rm tmdb-api-test
+          docker run --rm -e TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} tmdb-api-test
