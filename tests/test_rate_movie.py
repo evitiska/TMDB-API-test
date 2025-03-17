@@ -17,26 +17,41 @@ def guest_session():
     assert guest_session_id is not None
     return guest_session_id
 
+client = RateMovieClient()
+
 def test_rate_movie_session_id_missing():
-    client = RateMovieClient()
     response = client.rate(movie_id=TEST_MOVIE_ID, rating=10, guest_session_id=None)
     assert response.status_code == 401
     validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
 
-def test_rate_movie_valid_rating(guest_session):
+def test_rate_movie_session_id_invalid():
+    response = client.rate(movie_id=TEST_MOVIE_ID, rating=10, guest_session_id="bogus_session_id")
+    assert response.status_code == 401
+    validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
+
+def test_rate_movie_api_key_invalid():
+    client = RateMovieClient(api_key="bogus_api_key")
+    response = client.rate(movie_id=TEST_MOVIE_ID, rating=10, guest_session_id=None)
+    assert response.status_code == 401
+    validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
+
+def test_rate_movie_api_key_missing():
     client = RateMovieClient()
+    response = client.rate(movie_id=TEST_MOVIE_ID, rating=10, guest_session_id=None, include_api_key=False)
+    assert response.status_code == 401
+    validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
+
+def test_rate_movie_valid_rating(guest_session):
     response = client.rate(movie_id=TEST_MOVIE_ID, rating=10, guest_session_id=guest_session)
     assert response.status_code == 201
     validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
 
 def test_rate_movie_rating_too_high(guest_session):
-    client = RateMovieClient()
     response = client.rate(movie_id=TEST_MOVIE_ID, rating=999, guest_session_id=guest_session)
     assert response.status_code == 400
     validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)
 
 def test_rate_movie_rating_too_low(guest_session):
-    client = RateMovieClient()
     response = client.rate(movie_id=TEST_MOVIE_ID, rating=-20, guest_session_id=guest_session)
     assert response.status_code == 400
     validate(response.json(), RATED_MOVIE_RESPONSE_SCHEMA)

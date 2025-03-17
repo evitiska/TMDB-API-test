@@ -2,8 +2,11 @@ import requests
 from endpoints.base_api_client import APIBaseClient
 
 class TopRatedMoviesClient(APIBaseClient):
-    def get(self, page = None, language = None):
-        params = {"api_key": self.api_key}
+    def get(self, page = None, language = None, include_api_key = True):
+        params = {}
+        
+        if include_api_key:
+            params["api_key"] = self.api_key
         
         if page is not None: 
             params["page"] = page
