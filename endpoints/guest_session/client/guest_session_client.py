@@ -1,7 +1,7 @@
 import requests
-from utils.base_api_client import TMDBAPIClient
+from endpoints.base_api_client import APIBaseClient
 
-class GuestSessionTMDBAPIClient(TMDBAPIClient):
+class GuestSessionClient(APIBaseClient):
     def create_new_session(self):
         response = requests.get(
             f"{self.base_url}/authentication/guest_session/new",

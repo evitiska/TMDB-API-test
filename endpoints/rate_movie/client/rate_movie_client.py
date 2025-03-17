@@ -1,7 +1,7 @@
 import requests
-from utils.base_api_client import TMDBAPIClient
+from endpoints.base_api_client import APIBaseClient
 
-class RateMovieTMDBAPIClient(TMDBAPIClient):    
+class RateMovieClient(APIBaseClient):    
     def rate(self, movie_id, rating, guest_session_id):
         response = requests.post(
             f"{self.base_url}/movie/{movie_id}/rating",

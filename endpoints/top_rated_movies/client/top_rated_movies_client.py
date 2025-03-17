@@ -1,7 +1,7 @@
 import requests
-from utils.base_api_client import TMDBAPIClient
+from endpoints.base_api_client import APIBaseClient
 
-class TopRatedMoviesTMDBAPIClient(TMDBAPIClient):
+class TopRatedMoviesClient(APIBaseClient):
     def get(self, page = None, language = None):
         params = {"api_key": self.api_key}
         
