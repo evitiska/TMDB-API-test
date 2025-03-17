@@ -5,7 +5,7 @@ from utils.config import TEST_MOVIE_ID
 from utils.models.rate_movie_response import RATED_MOVIE_RESPONSE_SCHEMA
 from utils.models.new_guest_session_response import NEW_GUEST_SESSION_RESPONSE_SCHEMA
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def guest_session():
     client = api_client.TMDBClient()
     response = client.create_new_guest_session()

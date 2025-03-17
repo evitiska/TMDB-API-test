@@ -5,11 +5,14 @@ class TMDBClient:
     def __init__(self, api_key=None):
         self.api_key = api_key or API_KEY  # Use the passed API key or fallback to the default from config
 
-    def get_top_rated_movies(self, page = None):
+    def get_top_rated_movies(self, page = None, language = None):
         params = {"api_key": self.api_key}
         
         if page is not None: 
             params["page"] = page
+
+        if language is not None:
+            params["language"] = language
 
         response = requests.get(
             f"{BASE_URL}/movie/top_rated", params=params
