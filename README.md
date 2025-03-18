@@ -1,15 +1,20 @@
 [![Run tests](https://github.com/evitiska/TMDB-API-test/actions/workflows/runtests.yml/badge.svg?branch=main&event=push)](https://github.com/evitiska/TMDB-API-test/actions/workflows/runtests.yml)
 ### TMDB API Test
 
-This repository contains some API tests for two endpoints on the TMDB API :
+This repository contains some API tests for two endpoints on the TMDB API:
 - [get-top-rated-movies](https://developers.themoviedb.org/3/movies/get-top-rated-movies)
 - [rate-movie](https://developers.themoviedb.org/3/movies/rate-movie)
 
 These tests are using [pytest](https://docs.pytest.org/en/stable/). Additional JSON schema validation is done using [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/). 
 
 ### Running the tests
-
 After cloning the repo there are few options how to run the tests: 
+
+#### Prerequisite
+Set up the configuration value for the API key a `.env` file at the project root, such that the file contains `TMDB_API_KEY`:
+```
+TMDB_API_KEY=**********
+```
 
 ## 1. Run Tests in a Docker Container
 * Build the Docker image, for example `docker build -t tmdb-api-test .`
@@ -25,7 +30,7 @@ After cloning the repo there are few options how to run the tests:
 ## 3. Run Tests using GitHub Actions
 This repo is configured to run tests using GitHub Actions.
 
-* Option 1: Push a New Commit to `main` 
-* Option 2: Manually Trigger a Workflow:
+* Option 1: Push a new commit to `main` 
+* Option 2: Manually trigger a workflow run:
   * Navigate to GitHub → Actions tab
-  * Select the workflow and trigger it manually if needed    
+  * Select the workflow and trigger it manually for a given branch
