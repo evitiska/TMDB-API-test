@@ -12,9 +12,9 @@ These tests are using [pytest](https://docs.pytest.org/en/stable/). Additional J
 After cloning the repo there are few options how to run the tests: 
 
 ## 1. Run Tests in a Docker Container
-* Build the docker image, for example `docker build -t tmdb-api-test .`
-* Run the tests in a container `docker run --rm tmdb-api-test`
-* Run a single test in a doker container `docker run --rm tmdb-api-test pytest -k "<test_name>"`
+* Build the Docker image, for example `docker build -t tmdb-api-test .`
+* Run the tests in a container `docker run tmdb-api-test` (add `--rm` to remove container after run)
+* You can add additional pytest arguments, such as `-k` to specify a given test. `docker run --rm tmdb-api-test -k "<test_name>"`
 
 ## 2. Run Tests Manually
 * Install dependencies `pip install -r requirements.txt`
@@ -25,7 +25,7 @@ After cloning the repo there are few options how to run the tests:
 ## 3. Run Tests using GitHub Actions
 This repo is configured to run tests using GitHub Actions.
 
-* Option 1: Push a New Commit or Create a Pull Request  
+* Option 1: Push a New Commit to `main` 
 * Option 2: Manually Trigger a Workflow:
   * Navigate to GitHub → Actions tab
   * Select the workflow and trigger it manually if needed    
