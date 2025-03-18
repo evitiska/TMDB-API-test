@@ -29,7 +29,7 @@ TMDB_API_KEY=**********
 * To run a specific test use command `pytest -k "<test_name>"`
 
 ## 3. Run Tests using GitHub Actions
-This repo is configured to run tests using GitHub Actions.
+This repository is configured to run tests using GitHub Actions.
 
 * Option 1: Push a new commit to `main` 
 * Option 2: Manually trigger a workflow run:
