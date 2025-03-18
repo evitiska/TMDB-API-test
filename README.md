@@ -6,6 +6,7 @@ This repository contains some API tests for two endpoints on the TMDB API:
 - [rate-movie](https://developers.themoviedb.org/3/movies/rate-movie)
 
 These tests are using [pytest](https://docs.pytest.org/en/stable/). Additional JSON schema validation is done using [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/). 
+It currently exports its report in JUnit format.
 
 ### Running the tests
 After cloning the repo there are few options how to run the tests: 
