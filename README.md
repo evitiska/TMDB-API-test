@@ -8,5 +8,24 @@ This repository contains some API tests for two endpoints on the TMDB API :
 These tests are using [pytest](https://docs.pytest.org/en/stable/). Additional JSON schema validation is done using [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/). 
 
 ### Running the tests
-##
-- Run them containerized with the supplied Dockerfil
+
+After cloning the repo there are few options how to run the tests: 
+
+## 1. Run Tests in a Docker Container
+* Build the docker image, for example `docker build -t tmdb-api-test .`
+* Run the tests in a container `docker run --rm tmdb-api-test`
+* Run a single test in a doker container `docker run --rm tmdb-api-test pytest -k "<test_name>"`
+
+## 2. Run Tests Manually
+* Install dependencies `pip install -r requirements.txt`
+* Run tests manually `pytest`
+* To run a specific test file use command `pytest tests/<test_file_name>.py`
+* To run a specific test use command `pytest -k "<test_name>"`
+
+## 3. Run Tests using GitHub Actions
+This repo is configured to run tests using GitHub Actions.
+
+* Option 1: Push a New Commit or Create a Pull Request  
+* Option 2: Manually Trigger a Workflow:
+  * Navigate to GitHub → Actions tab
+  * Select the workflow and trigger it manually if needed    
