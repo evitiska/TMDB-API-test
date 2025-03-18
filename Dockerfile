@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
-CMD pytest --maxfail=1 --junitxml=/app/reports/test_report.xml -q
+ENTRYPOINT ["pytest", "--maxfail=1", "--junitxml=/app/reports/test_report.xml", "-q"]
