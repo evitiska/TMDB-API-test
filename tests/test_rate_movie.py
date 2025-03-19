@@ -3,8 +3,8 @@ from jsonschema import validate
 from utils.config import TEST_MOVIE_ID
 from endpoints.rate_movie.client.rate_movie_client import RateMovieClient
 from endpoints.guest_session.client.guest_session_client import GuestSessionClient
-from endpoints.guest_session.schema.new_guest_session_response import NEW_GUEST_SESSION_RESPONSE_SCHEMA
-from endpoints.rate_movie.schema.rate_movie_response import RATED_MOVIE_RESPONSE_SCHEMA
+from endpoints.guest_session.schema.new_guest_session_schema import NEW_GUEST_SESSION_RESPONSE_SCHEMA
+from endpoints.rate_movie.schema.rate_movie_schema import RATED_MOVIE_RESPONSE_SCHEMA
 
 @pytest.fixture(scope='module')
 def guest_session():

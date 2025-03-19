@@ -35,3 +35,8 @@ This repository is configured to run tests using GitHub Actions.
 * Option 2: Manually trigger a workflow run:
   * Navigate to GitHub → Actions tab
   * Select the workflow and trigger it manually for a given branch
+
+### Test Report
+
+* When running locally, use argument `--junitxml=test_report.xml` to specify a test report location and name
+* When using GitHub Actions, the test report can also be downloaded as an artifact from the workflow run.

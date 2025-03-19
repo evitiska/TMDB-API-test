@@ -1,6 +1,6 @@
 import pytest
 from endpoints.top_rated_movies.client.top_rated_movies_client import TopRatedMoviesClient 
-from endpoints.top_rated_movies.schema.top_rated_movies_response import TOP_RATED_MOVIES_RESPONSE_SCHEMA
+from endpoints.top_rated_movies.schema.top_rated_movies_schema import TOP_RATED_MOVIES_RESPONSE_SCHEMA
 from jsonschema import validate
 
 client = TopRatedMoviesClient()
